@@ -34,13 +34,24 @@
 !.config/dconf/user.d
 !.config/xfce4/
 !.config/xfce4/helpers.rc
-!.config/scripts/
-!.config/scripts/**
-.config/scripts/alttab/preview.png
 !.config/systemd/
 !.config/systemd/**
 !.config/backup-os/
 !.config/backup-os/**
+!.config/fastfetch/
+!.config/fastfetch/**
+!.config/flameshot/
+!.config/flameshot/**
+!.config/nvim/
+!.config/nvim/**
+!.config/spicetify/
+!.config/spicetify/**
+!.config/quickshell/
+!.config/quickshell/**
+
+# .scripts
+!.scripts/
+!.scripts/**
 
 # .xsettingsd
 !.xsettingsd
