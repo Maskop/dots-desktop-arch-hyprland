@@ -1,0 +1,33 @@
+// -*- mode: jsonc -*-
+[
+  {
+    "height": 32,
+    "spacing": 4,
+    "output": ["DP-2"],
+    "include": ["~/.config/waybar/config-modules.jsonc"],
+    "modules-left": [
+      "hyprland/workspaces",
+      // "wlr/taskbar",
+      "hyprland/window",
+    ],
+    "modules-center": ["clock", "idle_inhibitor"],
+    "modules-right": [
+      "privacy",
+      "pulseaudio",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "custom/power",
+    ],
+  },
+  {
+    "height": 32,
+    "spacing": 4,
+    "output": ["HDMI-A-2"],
+    "include": ["~/.config/waybar/config-modules.jsonc"],
+    "modules-left": ["hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray"],
+  },
+]

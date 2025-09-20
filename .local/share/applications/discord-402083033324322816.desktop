@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Game 402083033324322816
+Exec=xdg-open steam://rungameid/1948430 %u
+Type=Application
+NoDisplay=true
+Categories=Discord;Games;
+MimeType=x-scheme-handler/discord-402083033324322816;

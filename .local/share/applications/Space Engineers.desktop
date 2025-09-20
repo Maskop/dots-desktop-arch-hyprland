@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Space Engineers
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/244850
+Icon=steam_icon_244850
+Terminal=false
+Type=Application
+Categories=Game;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Planet S
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1948430
+Icon=steam_icon_1948430
+Terminal=false
+Type=Application
+Categories=Game;
