@@ -1,34 +1,62 @@
 // AppLauncher.qml
 import Quickshell
-// import QtQuick.Io
+import Quickshell.Io
+import Quickshell.Wayland
 import QtQuick
 // import QtQuick.Layout
 import qs.Services
 
-PopupWindow {
-  id: appLauncher
-  color: Design.transparent
+Scope {
+  PanelWindow {
+    id: appLauncher
+    color: Design.transparent
 
-  visible: true
+    visible: false
 
-  implicitWidth: 200
-  implicitHeight: 600
+    implicitWidth: 400
+    implicitHeight: 600
 
-  anchor {
-    window: ShellScreen
-  }
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
 
-  // Function to toggle popup on/off
-  function toggle() {
-    visible = !visible
-  }
-
-  Rectangle {
-    anchors {
-      fill: parent
+    // Function to toggle popup on/off
+    function toggle() {
+      visible = !visible
     }
-    color: Design.colBg
-    radius: 8
-    visible: true
+
+    Rectangle {
+      anchors {
+        fill: parent
+      }
+      color: Design.colBg
+      opacity: 0.8
+      radius: 8
+      visible: true
+
+      ListView {
+        anchors {
+          fill: parent
+          margins: appLauncher.width * 1/30
+        }
+      }
+    }
+
+    Process {
+      command: ["ls", "/usr/share/applications/"]
+    }
+
+
+    Shortcut {
+        sequence: "Escape"
+        onActivated: appLauncher.toggle()
+    }
+
+    IpcHandler {
+      function toggle() {
+        appLauncher.toggle()
+      }
+
+      target: "AppLauncher"
+    }
   }
 }

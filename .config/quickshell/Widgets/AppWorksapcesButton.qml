@@ -32,11 +32,19 @@ Rectangle {
     anchor.rect.y: Design.barHeight + Design.barMargins
   }
 
+  // AppLauncher {
+  //   id: appLauncher
+  //   anchor.window: popupButton.parentWindow
+  //   anchor.rect.y: Design.barHeight + Design.barMargins
+  // }
+
+
   MouseArea {
     anchors.fill: parent
     onClicked: {
       appsWorkspaces.toggle()
       appsWorkspaces.setWidth()
+      // appLauncher.toggle()
     }
   }
 }
