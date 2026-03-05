@@ -16,7 +16,8 @@ Rectangle {
     spacing: 5
 
     Rectangle {
-      color: Design.colFg
+      color: Design.transparent
+      // color: Design.colFg
       implicitWidth: 30
       implicitHeight: parent.height
       Layout.alignment: Qt.AlignLeft
@@ -24,16 +25,27 @@ Rectangle {
     }
 
     Rectangle {
-      color: Design.colFg
-      implicitWidth: 5
+      color: Design.transparent
+      // color: Design.colFg
+      implicitWidth: 30
       implicitHeight: parent.height
       Layout.alignment: Qt.AlignCenter
 
+      Text {
+        anchors {
+          verticalCenter: parent.verticalCenter
+          horizontalCenter: parent.horizontalCenter
+        }
+        visible: true
+        text: Brightness.brightness
+        color: "white"
+
+      }
     }
 
     Rectangle {
-      // color: Design.transparent
-      color: Design.colFg
+      color: Design.transparent
+      // color: Design.colFg
       implicitWidth: percentageIcon.width
       implicitHeight: parent.height
       Layout.alignment: Qt.AlignRight

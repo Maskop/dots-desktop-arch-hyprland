@@ -17,8 +17,8 @@ Singleton {
   Process {
     id: batteryPercentageUpdate
 
-    // command: ["cat", "/sys/class/power_supply/BAT0/capacity"]
-    command: ["cat", "/home/maskop/.config/quickshell/bingus"]
+    command: ["cat", "/sys/class/power_supply/BAT1/capacity"]
+    // command: ["cat", "/home/maskop/.config/quickshell/bingus"]
 
     stdout: StdioCollector {
       onStreamFinished: {
@@ -43,8 +43,8 @@ Singleton {
   Process {
     id: batteryStatusUpdate
 
-    // command: ["cat", "/sys/class/power_supply/BAT0/capacity"]
-    command: ["cat", "/home/maskop/.config/quickshell/bingus2"]
+    command: ["cat", "/sys/class/power_supply/BAT1/status"]
+    // command: ["cat", "/home/maskop/.config/quickshell/bingus2"]
 
     stdout: StdioCollector {
       onStreamFinished: {
@@ -77,8 +77,8 @@ Singleton {
       } else if (root.batteryPercentage > 99){
         root.counter = 4
       }
-      console.log(root.batteryIcons[root.counter])
-      console.log(root.counter)
+      // console.log(root.batteryIcons[root.counter])
+      // console.log(root.counter)
       root.batteryIcon = root.batteryIcons[root.counter]
       root.counter++
     }

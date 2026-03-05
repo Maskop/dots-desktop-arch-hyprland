@@ -14,6 +14,7 @@ Scope {
       property string position: "top"
 
       screen: modelData
+      aboveWindows: false
       
       anchors {
         bottom: position === "bottom"
@@ -36,7 +37,7 @@ Scope {
       Rectangle {
         id: barRectangle
         anchors.fill: parent
-        color: "grey"
+        color: Design.transparent
         radius: Design.widgetRadius
 
         RowLayout {
