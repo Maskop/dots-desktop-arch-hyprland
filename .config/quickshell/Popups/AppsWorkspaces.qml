@@ -21,6 +21,7 @@ PopupWindow {
 
   // Function to adopt width to the text
   function setWidth() {
+    maxWidth = 0
     for (let i = 0; i < activeApps.clients.length; i++) {
       activeApps.maxWidth = Math.max(activeAppsList.itemAtIndex(i).textWidth, activeApps.maxWidth)
     }
@@ -184,5 +185,9 @@ PopupWindow {
       delegate: appDelegate
 
     }
+  }
+  Shortcut {
+    sequence: "Escape"
+    onActivated: activeApps.toggle()
   }
 }

@@ -110,7 +110,7 @@ PanelWindow {
             appList.positionViewAtBeginning();
         }
     }
-
+    
     // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
     Process {
         id: usageFileReader
@@ -220,87 +220,94 @@ PanelWindow {
                 margins: appLauncher.width * 1 / 30
             }
 
-            ListView {
-                id: appList
+            ScrollView {
+                anchors.fill: parent
 
-                model: appLauncher.filteredApps
-                delegate: appDelegate
-                spacing: 3
-                clip: true
+                ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                ListView {
+                    id: appList
 
-                anchors {
-                    fill: parent
-                }
+                    model: appLauncher.filteredApps
+                    delegate: appDelegate
+                    spacing: 3
+                    clip: true
 
-                Component {
-                    id: appDelegate
+                    anchors {
+                        fill: parent
+                    }
 
-                    Rectangle {
-                        id: appRectangle
+                    Component {
+                        id: appDelegate
 
-                        color: Design.colFg
-                        implicitWidth: appList.width
-                        implicitHeight: Design.fontSize * 3
-                        radius: 5
-                        opacity: appLauncher.opacity
+                        Rectangle {
+                            id: appRectangle
 
-                        RowLayout {
-                            anchors {
-                                fill: parent
-                                margins: appRectangle.height / 4
+                            color: Design.colFg
+                            implicitWidth: appList.width
+                            implicitHeight: Design.fontSize * 3
+                            radius: 5
+                            opacity: appLauncher.opacity
+                            border {
+                                width: this.height * 1/10
+                                color: appLauncher.currentIndex === index ? Design.colBlue : Design.transparent
                             }
-                            spacing: appRectangle.height / 3
 
-                            Image {
-                                Layout.preferredHeight: appRectangle.height * 3/5
-                                Layout.preferredWidth: appRectangle.height * 3/5
-                                fillMode: Image.PreserveAspectFit
+                            RowLayout {
+                                anchors {
+                                    fill: parent
+                                    margins: appRectangle.height / 4
+                                }
+                                spacing: appRectangle.height / 3
 
-                                source: {
-                                    if (modelData.icon.indexOf("/") !== -1)
-                                        return "file://" + modelData.icon;
+                                Image {
+                                    Layout.preferredHeight: appRectangle.height * 3/5
+                                    Layout.preferredWidth: appRectangle.height * 3/5
+                                    fillMode: Image.PreserveAspectFit
 
-                                    return "image://icon/" + modelData.icon;
+                                    source: {
+                                        if (modelData.icon.indexOf("/") !== -1)
+                                            return "file://" + modelData.icon;
+
+                                        return "image://icon/" + modelData.icon;
+                                    }
+                                }
+
+                                Text {
+                                    id: text
+
+                                    text: modelData.name
+                                    leftPadding: 5
+                                    rightPadding: 5
+
+                                    Layout.fillWidth: true
+
+                                    font {
+                                        family: Design.fontFamily
+                                        pixelSize: Design.fontSize * 1.3
+                                        bold: true
+                                    }
+
                                 }
                             }
 
-                            Text {
-                                id: text
-
-                                text: modelData.id
-                                leftPadding: 5
-                                rightPadding: 5
-
-                                Layout.fillWidth: true
-
-                                font {
-                                    family: Design.fontFamily
-                                    pixelSize: Design.fontSize * 1.3
-                                    bold: true
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    appLauncher.incrementUsage(modelData.id);
+                                    modelData.execute();
+                                    appLauncher.toggle();
                                 }
-
                             }
-                        }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: {
-                                appLauncher.incrementUsage(modelData.id);
-                                modelData.execute();
-                                appLauncher.toggle();
-                            }
                         }
 
                     }
 
                 }
-
             }
-
         }
-
     }
 
     Shortcut {
