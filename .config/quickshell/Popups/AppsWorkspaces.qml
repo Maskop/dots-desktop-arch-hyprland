@@ -29,7 +29,7 @@ PopupWindow {
     activeApps.implicitWidth = activeApps.maxWidth + activeApps.componentHeight + 2*5 + 1
   }
 
-  implicitWidth: maxWidth + componentHeight + 2*5 + 1
+  implicitWidth: maxWidth
   implicitHeight: activeAppsList.contentHeight + 10
 
   property var clients: []
@@ -56,6 +56,11 @@ PopupWindow {
     command: [ "kill", pid ]
   }
 
+  function killApp(pid) {
+    killWindow.pid = pid
+    killWindow.running = true
+
+  }
 
   Connections {
     target: Hyprland
@@ -66,6 +71,12 @@ PopupWindow {
       }
     }
   }
+  
+  Shortcut {
+    sequence: "Escape"
+    onActivated: activeApps.toggle()
+  }
+
 
   Rectangle {
     id: activeAppsContainer
@@ -135,6 +146,7 @@ PopupWindow {
 
             MouseArea {
               anchors.fill: parent
+              cursorShape: Qt.PointingHandCursor
               onClicked: {
                 Hyprland.dispatch("workspace " + modelData.workspace.id)
                 console.log("Change to workspace " + modelData.workspace.id)
@@ -170,9 +182,9 @@ PopupWindow {
             }
 
             TapHandler {
+              cursorShape: Qt.PointingHandCursor
               onTapped: {
-                killWindow.pid = modelData.pid
-                killWindow.running = true
+                activeApps.killApp(modelData.pid)
               }
             }
           }

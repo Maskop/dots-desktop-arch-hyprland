@@ -41,6 +41,7 @@ Rectangle {
 
   MouseArea {
     anchors.fill: parent
+    cursorShape: Qt.PointingHandCursor
     onClicked: {
       clockText.visible = !clockText.visible
       dateText.visible = !clockText.visible

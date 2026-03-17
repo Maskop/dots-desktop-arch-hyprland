@@ -41,6 +41,7 @@ Rectangle {
 
   MouseArea {
     anchors.fill: parent
+    cursorShape: Qt.PointingHandCursor
     onClicked: {
       appsWorkspaces.toggle()
       appsWorkspaces.setWidth()

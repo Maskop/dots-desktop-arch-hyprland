@@ -9,7 +9,7 @@ import qs.Services
 PanelWindow {
     id: appLauncher
 
-    property var opacity: 0.9
+    property var opacity: Design.launcherOpacity
 
     // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
     readonly property string usageFilePath: Quickshell.env("HOME") + "/.cache/app-usage.json"
@@ -68,12 +68,14 @@ PanelWindow {
 
     // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
     function loadUsage() {
-        usageFileReader.running = true;
+        usageFile.reload()
+        usageFile.waitForJob()
+        appLauncher.usageCounts = JSON.parse(usageFile.data())
     }
 
     // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
     function saveUsage() {
-        usageFileWriter.running = true;
+        usageFile.setText(JSON.stringify(appLauncher.usageCounts))
     }
 
     // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
@@ -111,30 +113,10 @@ PanelWindow {
         }
     }
     
-    // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
-    Process {
-        id: usageFileReader
+    FileView {
+        id: usageFile
 
-        command: ["cat", appLauncher.usageFilePath]
-        running: true
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                appLauncher.usageCounts = JSON.parse(this.text);
-            }
-        }
-
-    }
-
-    // Borrowed from https://github.com/MannuVilasara/xenon-shell/blob/772cf6f40b1b73ca65e8b8b6075a9c221c0f61e1/Modules/Launcher/AppLauncher.qml
-    Process {
-        id: usageFileWriter
-
-        command: ["sh", "-c", "cat > " + appLauncher.usageFilePath]
-        running: false
-        onStarted: {
-            write(JSON.stringify(appLauncher.usageCounts));
-        }
+        path: Qt.resolvedUrl(appLauncher.usageFilePath)
     }
 
     Rectangle {
