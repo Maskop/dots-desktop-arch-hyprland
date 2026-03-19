@@ -13,7 +13,7 @@ PanelWindow {
 
   screen: Quickshell.screens[0]
   color: Design.transparent
-  visible: true
+  visible: false
   implicitWidth: maxWidth
   implicitHeight: 600
   WlrLayershell.layer: WlrLayer.Overlay
@@ -38,7 +38,7 @@ PanelWindow {
 
   ListView {
     anchors.fill: parent
-    model: NotificationService.notifications
+    model: NotificationService.notifActive
 
     Component {
       id: notifDelegate

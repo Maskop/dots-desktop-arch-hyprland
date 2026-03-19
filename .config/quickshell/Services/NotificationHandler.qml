@@ -1,3 +1,4 @@
+import QtQuick
 import Quickshell.Services.Notifications
 
 NotificationServer {
@@ -13,5 +14,7 @@ NotificationServer {
     notification.tracked = true
 
     NotificationService.notifications.push(notification)
+    NotificationService.notifActive.push(notification)
+    NotificationService.timer.push({"time" : Date.now(), "id" : notification.id})
   }
 }
