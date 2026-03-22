@@ -33,7 +33,9 @@ Singleton {
   property real launcherOpacity: 0.9
 
   // notif popup settings
-  property int notifPopupWidthByMonitorWidthRatio: 6         /* this number is the denominator */
+  property int notifPopupWidthByMonitorWidthRatio: 6        /* this number is the denominator */
   property real notifPopupOpacity: 0.9
   property bool notifPopupImage: false
+  property int popupTimeout: 5000                           /* time in ms */
+  property int iconSize: 40
 }

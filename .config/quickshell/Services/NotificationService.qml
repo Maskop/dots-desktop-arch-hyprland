@@ -67,7 +67,7 @@ Singleton {
         console.log("Date.now(): " + Date.now())
         console.log("root.timer[i].time: " + root.timer[i].time)
         console.log("root.notifActive[i]?.expireTimeout * 1000: " + root.notifActive[i]?.expireTimeout * 1000)
-        let expireTimer = (root.notifActive[i]?.expireTimeout * 1000 > 1000) ? root.timer[i].time + root.notifActive[i]?.expireTimeout * 1000 : root.timer[i].time + 5000
+        let expireTimer = (root.notifActive[i]?.expireTimeout * 1000 > 1000) ? root.timer[i].time + root.notifActive[i]?.expireTimeout * 1000 : root.timer[i].time + Design.popupTimeout
         console.log("expireTimer: " + expireTimer)
         if (Date.now() > expireTimer) {
           console.log("deleting")
