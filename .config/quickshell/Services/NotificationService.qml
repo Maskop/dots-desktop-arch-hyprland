@@ -45,6 +45,22 @@ Singleton {
     }
   }
 
+  function closePopup(id) {
+    for (let i = 0; i < notifActive.length; i++) {
+      if (notifActive[i].id == id) {
+        notifActive.pop(i).dismiss()
+        break;
+      }
+    }
+  }
+
+  function shortenedMessage(text) {
+    if (text.length > Design.notifPopupMaxCharacters)
+      return text.substring(0, Design.notifPopupMaxCharacters) + "..."
+    else
+      return text
+  }
+
   Timer {
     interval: 60000
     running: true
@@ -58,17 +74,13 @@ Singleton {
 
   Timer {
     id: popupTimer
-    interval: 1000
+    interval: 500
     running: root.notifActive.length > 0
     repeat: true
 
     onTriggered: {
       for (let i = 0; i < root.notifActive.length; i++) {
-        console.log("Date.now(): " + Date.now())
-        console.log("root.timer[i].time: " + root.timer[i].time)
-        console.log("root.notifActive[i]?.expireTimeout * 1000: " + root.notifActive[i]?.expireTimeout * 1000)
-        let expireTimer = (root.notifActive[i]?.expireTimeout * 1000 > 1000) ? root.timer[i].time + root.notifActive[i]?.expireTimeout * 1000 : root.timer[i].time + Design.popupTimeout
-        console.log("expireTimer: " + expireTimer)
+        let expireTimer = (root.notifActive[i]?.expireTimeout * 1000 > 1000) ? root.timer[i].time + root.notifActive[i]?.expireTimeout : root.timer[i].time + Design.notifPopupTimeout
         if (Date.now() > expireTimer) {
           console.log("deleting")
           root.notifActive.pop(i)

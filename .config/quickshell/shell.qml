@@ -8,4 +8,5 @@ Scope {
   AppLauncher {}
   NotificationHandler {}
   NotifPopup {}
+  WorkspaceOverviewWidget {}
 }

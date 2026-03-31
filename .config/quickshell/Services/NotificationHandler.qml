@@ -5,7 +5,7 @@ NotificationServer {
   id: notifServer
 
   bodySupported: true
-  imageSupported: false
+  imageSupported: Design.notifPopupSupport
   actionsSupported: false
   inlineReplySupported: false
   bodyMarkupSupported: false

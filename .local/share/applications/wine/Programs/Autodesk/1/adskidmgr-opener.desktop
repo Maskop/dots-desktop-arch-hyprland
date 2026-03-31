@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=adskidmgr Scheme Handler
+StartupNotify=false
+MimeType=x-scheme-handler/adskidmgr;
+Exec=sh -c 'env STEAM_COMPAT_CLIENT_INSTALL_PATH=/home/maskop/.local/share/Steam STEAM_COMPAT_DATA_PATH=/home/maskop/.autodesk_fusion/protonprefix /home/maskop/.local/share/Steam/compatibilitytools.d/GE-Proton10-34/proton run "$(find /home/maskop/.autodesk_fusion/protonprefix/pfx -name AdskIdentityManager.exe | head -1)" "%u"'

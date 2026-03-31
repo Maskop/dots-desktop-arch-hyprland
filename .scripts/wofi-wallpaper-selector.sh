@@ -78,8 +78,8 @@ if [ -n "$selected" ]; then
 
     # Ensure a valid wallpaper was found before proceeding
     if [ -n "$original_path" ]; then
-        # Set wallpaper using swww with the original file
-        swww img "$original_path" --transition-type=center
+        # Set wallpaper using awww with the original file
+        awww img "$original_path" --transition-type=center
 
         # Save the selection for persistence
         echo "$original_path" > "$HOME/.cache/current_wallpaper"

@@ -9,15 +9,17 @@ Rectangle {
   
   property var numOfWorkspaces: 10
 
-  Layout.preferredWidth: this.height * numOfWorkspaces + numOfWorkspaces * 1.5
+  Layout.preferredWidth: list.implicitWidth
   color: Design.transparent
 
   
   ListView {
+    id: list
     model: numOfWorkspaces
     orientation: Qt.Horizontal
     verticalLayoutDirection: ListView.LeftToRight
-    anchors.fill: parent
+    implicitWidth: childrenRect.width
+    implicitHeight: Design.widgetHeight
     spacing: 4
     interactive: false
     

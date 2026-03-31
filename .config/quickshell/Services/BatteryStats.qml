@@ -87,8 +87,8 @@ Singleton {
 
   Timer {
     id: updateTimer
-    interval: 5000
-    running: true
+    interval: Design.checkbatteryInterval
+    running: Design.checkBattery
     repeat: true
 
     onTriggered: {

@@ -247,10 +247,7 @@ PanelWindow {
                                     fillMode: Image.PreserveAspectFit
 
                                     source: {
-                                        if (modelData.icon.indexOf("/") !== -1)
-                                            return "file://" + modelData.icon;
-
-                                        return "image://icon/" + modelData.icon;
+                                        Quickshell.iconPath(modelData.icon)
                                     }
                                 }
 
