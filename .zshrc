@@ -76,4 +76,7 @@ alias clicker='~/clicker.sh'
 [[ -f ~/.dart-cli-completion/zsh-config.zsh ]] && . ~/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-fastfetch
+source ~/.cache/hellwal/variables.sh
+sh ~/.cache/hellwal/terminal.sh
+
+fastfetch --logo-type kitty --logo ~/Pictures/anime.gif --logo-width 28 --logo-height 17  

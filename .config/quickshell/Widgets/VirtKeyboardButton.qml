@@ -2,15 +2,17 @@ import QtQuick
 import QtQuick.Layouts
 import qs.Services
 import qs.VirtualKeyboard
-import qs.Popups
 
 Rectangle {
-  id: virtKeyboardButton
+  id: root
   color: Design.colBg
   Layout.preferredWidth: this.height
   radius: Design.widgetRadius
 
-  property var parentWindow: ""
+  border {
+    width: Design.widgetHeight / 16
+    color: Design.transparent
+  }
 
   Text {
     text: "K"
@@ -31,6 +33,20 @@ Rectangle {
     cursorShape: Qt.PointingHandCursor
     onClicked: {
       StatusSaver.wokrspacesView = !StatusSaver.wokrspacesView
+    }
+  }
+
+  HoverHandler {
+    id: mouse
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+    cursorShape: Qt.PointingHandCursor
+
+    onHoveredChanged: {
+      if (hovered) {
+        root.border.color = Design.colBlue
+      } else {
+        root.border.color = Design.transparent
+      }
     }
   }
 }

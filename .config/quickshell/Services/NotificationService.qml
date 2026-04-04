@@ -31,6 +31,7 @@ Singleton {
   }
 
   function dismiss(id) {
+    closePopup(id)
     for (let i = 0; i < notifications.length; i++) {
       if (notifications[i].id == id) {
         notifications.pop(i).dismiss()
@@ -61,16 +62,16 @@ Singleton {
       return text
   }
 
-  Timer {
-    interval: 60000
-    running: true
-    repeat: true
-
-    onTriggered: {
-      console.log("All notifications cleared")
-      root.dismissAll()
-    }
-  }
+  // Timer {
+  //   interval: 60000
+  //   running: true
+  //   repeat: true
+  //
+  //   onTriggered: {
+  //     console.log("All notifications cleared")
+  //     root.dismissAll()
+  //   }
+  // }
 
   Timer {
     id: popupTimer

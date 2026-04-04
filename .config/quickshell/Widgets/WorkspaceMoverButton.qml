@@ -1,8 +1,6 @@
-import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.Services
-import qs.Popups
 
 Rectangle {
   id: root
@@ -15,10 +13,8 @@ Rectangle {
     color: Design.transparent
   }
 
-  property var parentWindow: ""
-
   Text {
-    text: ""
+    text: ""
     color: Design.colFg
     anchors {
       horizontalCenter: parent.horizontalCenter
@@ -30,20 +26,12 @@ Rectangle {
       pixelSize: Design.fontSize
     }
   }
-
-  AppsWorkspaces {
-    id: appsWorkspaces
-    anchor.window: root.parentWindow
-    anchor.item: root
-    anchor.rect.y: Design.barHeight + Design.barMargins
-  }
-
+  
   MouseArea {
     anchors.fill: parent
     cursorShape: Qt.PointingHandCursor
     onClicked: {
-      appsWorkspaces.toggle()
-      appsWorkspaces.setWidth()
+      StatusSaver.wokrspacesView = !StatusSaver.wokrspacesView
     }
   }
 

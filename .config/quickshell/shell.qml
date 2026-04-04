@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import qs.Popups
 import qs.Services
+import qs.Panels
 
 Scope {
   Bar {}
@@ -9,4 +10,5 @@ Scope {
   NotificationHandler {}
   NotifPopup {}
   WorkspaceOverviewWidget {}
+  RightSidePanel {}
 }

@@ -93,15 +93,16 @@ PanelWindow {
 
     // Function to toggle popup on/off
     function toggle() {
-        visible = !visible;
+        StatusSaver.appLauncherVisible = !StatusSaver.appLauncherVisible;
+        appLauncher.WlrLayershell.keyboardFocus = WlrKeyboardFocus.OnDemand
     }
 
     color: Design.transparent
-    visible: false
+    visible: StatusSaver.appLauncherVisible
     implicitWidth: 600
     implicitHeight: 600
     WlrLayershell.layer: WlrLayer.Overlay
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
     Component.onCompleted: loadUsage()
     onVisibleChanged: {
         if (visible) {
@@ -297,6 +298,7 @@ PanelWindow {
     IpcHandler {
         function toggle() {
             appLauncher.toggle();
+            appLauncher.WlrLayershell.keyboardFocus = WlrKeyboardFocus.Exclusive
         }
 
         target: "AppLauncher"

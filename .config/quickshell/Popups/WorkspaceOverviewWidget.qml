@@ -4,8 +4,6 @@ import Quickshell
 import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Wayland
-import Quickshell.Widgets
 import qs.Services
 
 Scope {

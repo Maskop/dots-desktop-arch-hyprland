@@ -44,6 +44,17 @@ Singleton {
 
   // notif center settings
   property real notifCenterWidthByMonitorWidthRatio: 1/7
+  property real notifCenterWidthByMonitorHeightRatio: 1/2
+  property int notifCenterRadius: 20
+  property int notifCenterMargins: 10
+
+  // widget toggles
+  property bool clockWidgetVisible: true
+  property bool appWorkspacesButtonVisible: false
+  property bool statusWidgetVisible: false
+  property bool virtKeyboardButtonVisible: false
+  property bool workspacesVisible: true
+  property bool workspaceMoverButtonVisible: false
 
   // check for changes settings
   property bool checkBrightness: false

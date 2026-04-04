@@ -669,7 +669,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1773691227959
+        "settingsSyncVersion": 1775068398794
     },
     "uiElements": {
         "chatBarButtons": {},
