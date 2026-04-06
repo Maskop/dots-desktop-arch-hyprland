@@ -56,17 +56,11 @@ PanelWindow {
       id: notifHandler
     }
 
-    MouseArea {
-      anchors.fill: parent
-      z: -1
-      hoverEnabled: true
-      acceptedButtons: Qt.LeftButton
+    TapHandler {
+      acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+      onTapped: root.notifBoxOpen = !root.notifBoxOpen
+    }    
 
-      onClicked: {
-        root.notifBoxOpen = !root.notifBoxOpen
-      }
-    }
-    
     Behavior on x {
       NumberAnimation {
         duration: 400
