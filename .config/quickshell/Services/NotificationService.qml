@@ -12,9 +12,9 @@ Singleton {
 
 
   onNotificationsChanged: {
-    console.log("\t\t\tNotificationsService\t\t\t")
-    console.log("------------------------------------------------------------")
-    console.log(notifications)
+    // console.log("\t\t\tNotificationsService\t\t\t")
+    // console.log("------------------------------------------------------------")
+    // console.log(notifications)
     for (let i = 0; i < notifications.length; i++) {
       var notif = notifications[i]
       if (notif == null) {
@@ -22,11 +22,11 @@ Singleton {
         break
       }
       
-      console.log("id: " + notif.id)
-      console.log("appName: " + notif.appName)
-      console.log("summary: " + notif.summary)
-      console.log("body: " + notif.body)
-      console.log("appIcon: " + notif.appIcon)
+      // console.log("id: " + notif.id)
+      // console.log("appName: " + notif.appName)
+      // console.log("summary: " + notif.summary)
+      // console.log("body: " + notif.body)
+      // console.log("appIcon: " + notif.appIcon)
     }
   }
 
@@ -83,7 +83,6 @@ Singleton {
       for (let i = 0; i < root.notifActive.length; i++) {
         let expireTimer = (root.notifActive[i]?.expireTimeout * 1000 > 1000) ? root.timer[i].time + root.notifActive[i]?.expireTimeout : root.timer[i].time + Design.notifPopupTimeout
         if (Date.now() > expireTimer) {
-          console.log("deleting")
           root.notifActive.pop(i)
           root.timer.pop(i)
         }

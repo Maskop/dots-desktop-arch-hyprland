@@ -112,9 +112,9 @@ PanelWindow {
             Layout.margins: 8
 
             source: {
-              console.log("this.width: " + this.width)
-              console.log("this.height: " + this.height)
-              console.log("maxWidth: " + root.maxWidth)
+              // console.log("this.width: " + this.width)
+              // console.log("this.height: " + this.height)
+              // console.log("maxWidth: " + root.maxWidth)
               if (modelData.appIcon.indexOf("/") !== -1)
                 return "file://" + modelData.appIcon;
 

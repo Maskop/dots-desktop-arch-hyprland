@@ -33,11 +33,15 @@ Rectangle {
     }
 
     Rectangle {
+      id: listContainer
+
+      visible: true
       color: "transparent"
       Layout.alignment: Qt.AlignTop
       Layout.margins: Design.notifCenterMargins * 1.5
       Layout.fillWidth: true
       Layout.fillHeight: true
+
       ListView {
         id: list
 
@@ -251,8 +255,51 @@ Rectangle {
           }
         }
 
+        onModelChanged: {
+          if (NotificationService.notifications.length === 0) {
+            listContainer.visible = false
+            noNotifsBox.visible = true
+          } else {
+            listContainer.visible = true
+            noNotifsBox.visible = false
+          }
+        }
+
         delegate: notifDelegate
       }
+    }
+
+    Rectangle {
+      id: noNotifsBox
+
+      visible: false
+      color: Design.colFg
+      radius: 8
+      Layout.alignment: Qt.AlignTop
+      Layout.margins: Design.notifCenterMargins * 1.5
+      Layout.fillWidth: true
+      Layout.preferredHeight: Design.fontSize * 1.2 * 6
+      
+      Text {
+        color: "black"
+
+        anchors.fill: parent
+        text: "THERE ARE NO NEW NOTIFICATIONS"
+
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font {
+          pixelSize: Design.fontSize * 1.2
+          family: Design.fontFamily
+          bold: true
+        }
+      }
+
+      // Component.onCompleted: {
+      //   console.log("noNotifsBox width: " + this.width)
+      //   console.log("noNotifsBox height: " + this.height)
+      //   console.log("noNotifsBox visible: " + this.visible)
+      // }
     }
   }
 }

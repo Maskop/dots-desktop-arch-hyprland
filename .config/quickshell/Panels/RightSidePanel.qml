@@ -56,6 +56,13 @@ PanelWindow {
       id: notifHandler
     }
 
+    // MouseArea {
+    //   anchors.fill: parent
+    //   z: -1
+    //   hoverEnabled: true
+    //   acceptedButtons: Qt.LeftButton
+    // }
+    
     Behavior on x {
       NumberAnimation {
         duration: 400
