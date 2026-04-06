@@ -279,15 +279,19 @@ Rectangle {
       Layout.margins: Design.notifCenterMargins * 1.5
       Layout.fillWidth: true
       Layout.preferredHeight: Design.fontSize * 1.2 * 6
+
+      property int curWidth: this.width
       
       Text {
         color: "black"
 
         anchors.fill: parent
         text: "THERE ARE NO NEW NOTIFICATIONS"
+        width: noNotifsBox.curWidth
 
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.Wrap
         font {
           pixelSize: Design.fontSize * 1.2
           family: Design.fontFamily
