@@ -12,7 +12,7 @@ PanelWindow {
   property int notifBoxWidth: Quickshell.screens[0].width * Design.notifCenterWidthByMonitorWidthRatio
   property int notifBoxHeight: Quickshell.screens[0].height * Design.notifCenterWidthByMonitorHeightRatio
   property int peekWidth: 15
-  property bool notifBoxOpen: notifHandler.hovered
+  property bool notifBoxOpen: false
 
   implicitWidth: Screen.width
   implicitHeight: Screen.height
@@ -43,7 +43,7 @@ PanelWindow {
   NotifCenter {
     id: notifBox
 
-    x: root.notifBoxOpen ? root.width - root.notifBoxWidth - Design.notifCenterMargins: root.width - root.peekWidth
+    x: (root.notifBoxOpen || notifHandler.hovered) ? root.width - root.notifBoxWidth - Design.notifCenterMargins: root.width - root.peekWidth
     width: root.notifBoxWidth
     height: root.notifBoxHeight
 
@@ -56,12 +56,16 @@ PanelWindow {
       id: notifHandler
     }
 
-    // MouseArea {
-    //   anchors.fill: parent
-    //   z: -1
-    //   hoverEnabled: true
-    //   acceptedButtons: Qt.LeftButton
-    // }
+    MouseArea {
+      anchors.fill: parent
+      z: -1
+      hoverEnabled: true
+      acceptedButtons: Qt.LeftButton
+
+      onClicked: {
+        root.notifBoxOpen = !root.notifBoxOpen
+      }
+    }
     
     Behavior on x {
       NumberAnimation {
