@@ -43,22 +43,22 @@ Singleton {
   property int notifPopupMaxCharacters: 300
 
   // notif center settings
-  property real notifCenterWidthByMonitorWidthRatio: 1/7
+  property real notifCenterWidthByMonitorWidthRatio: 1/4
   property real notifCenterWidthByMonitorHeightRatio: 1/2
   property int notifCenterRadius: 20
   property int notifCenterMargins: 10
 
   // widget toggles
   property bool clockWidgetVisible: true
-  property bool appWorkspacesButtonVisible: false
-  property bool statusWidgetVisible: false
-  property bool virtKeyboardButtonVisible: false
+  property bool appWorkspacesButtonVisible: true
+  property bool statusWidgetVisible: true
+  property bool virtKeyboardButtonVisible: true
   property bool workspacesVisible: true
-  property bool workspaceMoverButtonVisible: false
+  property bool workspaceMoverButtonVisible: true
 
   // check for changes settings
-  property bool checkBrightness: false
+  property bool checkBrightness: true
   property int checkBrightnessInterval: 500
-  property bool checkBattery: false
+  property bool checkBattery: true
   property int checkbatteryInterval: 5000  
 }

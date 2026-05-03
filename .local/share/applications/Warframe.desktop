@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Subnautica
+Name=Warframe
 Comment=Play this game on Steam
-Exec=steam steam://rungameid/264710
-Icon=steam_icon_264710
+Exec=steam steam://rungameid/230410
+Icon=steam_icon_230410
 Terminal=false
 Type=Application
 Categories=Game;

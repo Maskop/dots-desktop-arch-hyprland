@@ -657,6 +657,9 @@
         },
         "CustomCommands": {
             "enabled": false
+        },
+        "CharacterCounter": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -669,7 +672,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1775068398794
+        "settingsSyncVersion": 1777732506768
     },
     "uiElements": {
         "chatBarButtons": {},
