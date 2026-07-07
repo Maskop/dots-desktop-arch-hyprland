@@ -1,0 +1,18 @@
+-- Original plugins.conf:
+--
+--   plugin {
+--     hy3 {
+--       autotile {
+--         enable = false
+--       }
+--     }
+--   }
+--
+-- Plugin settings are the one part of hyprlang with no generic 1:1 Lua
+-- equivalent -- plugins expose their own hl.plugin.* / config APIs and
+-- have to be rebuilt for 0.55+.
+--
+-- In this case it doesn't matter: autotile.enable = false is hy3's
+-- default anyway, and the active layout is dwindle, so this file was
+-- effectively a no-op. If you start actually using hy3, check its repo
+-- for 0.55/Lua support and the new way to set its options.
