@@ -436,3 +436,54 @@ tooltip box {
   color: @text;
   border-bottom: 2px solid @mauve;
 }
+
+/* ---- Wi-Fi / Bluetooth / 3D printer modules ---- */
+/* #network is already styled in the shared block above */
+
+#bluetooth,
+#custom-printer {
+  padding: 0 10px;
+  margin: 3px 3px;
+  color: @text;
+  background-color: alpha(@surface0, 0.9);
+  border-radius: 8px;
+}
+
+#bluetooth:hover,
+#custom-printer:hover {
+  background-color: alpha(@surface1, 0.95);
+  color: @mauve;
+}
+
+#bluetooth.connected {
+  color: @blue;
+}
+
+#bluetooth.disabled,
+#bluetooth.off,
+#network.disconnected {
+  color: @overlay0;
+}
+
+#custom-printer.printing {
+  color: @green;
+}
+
+#custom-printer.paused {
+  color: @peach;
+}
+
+#custom-printer.done {
+  color: @teal;
+}
+
+#custom-printer.error {
+  color: @red;
+}
+
+/* fully collapse the printer module when it has nothing to show */
+#custom-printer.hidden {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
