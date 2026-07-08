@@ -1,0 +1,25 @@
+-- exec-once  ->  hl.on("hyprland.start", ...)   (runs once at startup)
+-- exec       ->  top-level hl.exec_cmd(...)      (runs on every reload,
+--                because the whole config re-executes on reload)
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd(terminal)
+    hl.exec_cmd("waybar &")
+    hl.exec_cmd("awww-daemon &")
+    hl.exec_cmd("swaync &")
+    hl.exec_cmd("hypridle &")
+    hl.exec_cmd("flameshot &")
+    hl.exec_cmd("cupsd &")
+    hl.exec_cmd("sh ~/.scripts/run-wayvnc-main-monitor &")
+    hl.exec_cmd("wayvnc 0.0.0.0 -g --output=" .. monitors.main.output .. " &")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    hl.exec_cmd("wl-paste --watch cliphist store &")
+    hl.exec_cmd("/usr/lib/protonmail/bridge/bridge --grpc &")
+    hl.exec_cmd("hyprpm reload -n")
+    -- hl.exec_cmd("qs &")
+end)
+
+-- "Adwita-dark" typo from the original fixed here:
+hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark" &')
+hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" &')
+hl.exec_cmd("kbuildsycoca6 &")
