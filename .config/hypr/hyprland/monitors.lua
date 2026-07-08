@@ -6,13 +6,13 @@
 
 monitors = {
     main = { -- ultrawide
-        output    = "DP-2",
-        mode      = "3440x1440@180.00Hz",
+        output    = "eDP-1",
+        mode      = "1366x768@60.00Hz",
         position  = "0x0",
         scale     = 1,
         transform = 0,
-        bitdepth  = 10,
-        vrr       = 1,
+        bitdepth  = 8,
+        vrr       = 0,
     },
 
     vertical = { -- rotated side monitor
@@ -32,6 +32,9 @@ monitors = {
         scale     = 1,
         transform = 0,
     },
+   -- On the laptop none of the outputs above exist, which is harmless --
+   -- eDP-1 just gets defaults. Uncomment to pin it explicitly:
+     laptop = { output = "eDP-1", mode = "preferred", position = "auto", scale = 1 },
 }
 
 for _, m in pairs(monitors) do

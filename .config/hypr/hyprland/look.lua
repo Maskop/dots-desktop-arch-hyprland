@@ -25,7 +25,8 @@ hl.config({
     dwindle = {
         smart_split         = false,
         default_split_ratio = 1,
-        pseudotile          = true, -- bound to mainMod + P in keybinds
+        -- pseudotile was removed in Hyprland 0.55: pseudotiling is now
+        -- per-window only, via the pseudo dispatcher (mainMod + P bind)
         preserve_split      = true, -- You probably want this
     },
 
