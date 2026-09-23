@@ -41,6 +41,12 @@ return {
   { "elkowar/yuck.vim" },
   { "xiyaowong/transparent.nvim" },
   { "Leon-Degel-Koehn/qmlformat.nvim" },
+
+  {
+    "DamianVCechov/hexview.nvim",
+    config = function() require("hexview").setup() end,
+  },
+
   -- { "Leon-Degel-Koehn/qmlformat.nvim" },
   -- {
   --   "neovim/nvim-lspconfig",
