@@ -10,4 +10,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- import/override with your plugins folder
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.cpp" },
 }

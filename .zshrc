@@ -1,7 +1,7 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH=/usr/local/texlive/2026/bin/x86_64-linux:$PATH
+export PATH=/usr/local/texlive/2026/bin/x86_64-linux:$HOME/.local/bin:$PATH
 export MANPATH=/usr/local/texlive/2026/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2026/texmf-dist/doc/info:$INFOPATH
 
@@ -80,7 +80,18 @@ alias clicker='~/clicker.sh'
 [[ -f ~/.dart-cli-completion/zsh-config.zsh ]] && . ~/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-source ~/.cache/hellwal/variables.sh
-sh ~/.cache/hellwal/terminal.sh
+# source ~/.cache/hellwal/variables.sh
+# sh ~/.cache/hellwal/terminal.sh
 
 fastfetch --logo-type kitty --logo ~/Pictures/anime.gif --logo-width 28 --logo-height 17  
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+source ~/.zsh_completions
+
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/maskop/.local/bin:$PATH"

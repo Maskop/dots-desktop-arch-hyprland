@@ -18,6 +18,17 @@ Rectangle {
     }
   }
 
+  Timer {
+    interval: Design.checkBrightnessInterval
+    running: Design.checkBrightness
+    repeat: true
+
+    onTriggered: {
+      statusWidget.calculateWidth()
+    }
+  }
+
+
   implicitWidth: curWidth 
   
   Component.onCompleted: {

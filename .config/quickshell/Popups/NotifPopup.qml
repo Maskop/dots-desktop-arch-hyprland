@@ -132,9 +132,9 @@ PanelWindow {
 
             property int textWidth: {
               if (notifContainer.showIcon()) {
-                return root.maxWidth - Design.notifPopupIconSize * 2 - Design.fontSize
+                return root.maxWidth - Design.notifPopupIconSize * 2 - Design.fontSize * 2
               } else {
-                return root.maxWidth
+                return root.maxWidth - Design.fontSize * 2
               }
             }
 

@@ -19,7 +19,7 @@ Singleton {
 
   // font settings
   property string fontFamily: "JetBrainsMono Nerd Font"
-  property int fontSize: 14
+  property int fontSize: 18
 
   // bar settings
   property int barAdd: 4
@@ -33,17 +33,17 @@ Singleton {
   property real launcherOpacity: 0.9
 
   // notif server settings
-  property bool notifImageSupport: false
+  property bool notifImageSupport: false              /* not implemented yet */
 
   // notif popup settings
-  property real notifPopupWidthByMonitorWidthRatio: 1/7
+  property real notifPopupWidthByMonitorWidthRatio: 1/4
   property real notifPopupOpacity: 0.9
   property int notifPopupTimeout: 5000                           /* time in ms */
   property int notifPopupIconSize: 40
   property int notifPopupMaxCharacters: 300
 
   // notif center settings
-  property real notifCenterWidthByMonitorWidthRatio: 1/4
+  property real notifCenterWidthByMonitorWidthRatio: 1/3
   property real notifCenterWidthByMonitorHeightRatio: 1/2
   property int notifCenterRadius: 20
   property int notifCenterMargins: 10

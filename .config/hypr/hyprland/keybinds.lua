@@ -1,4 +1,4 @@
-local terminal = "kitty"
+local terminal = "kitty --start-as minimized"
 local fileManager = "dolphin"
 local menu = "wofi"
 

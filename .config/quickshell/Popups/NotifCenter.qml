@@ -109,9 +109,9 @@ Rectangle {
 
                 property int textWidth: {
                   if (notifContainer.showIcon()) {
-                    return list.width - Design.notifPopupIconSize * 2 - Design.fontSize
+                    return list.width - Design.notifPopupIconSize * 2 - Design.fontSize * 2
                   } else {
-                    return list.width
+                    return list.width - Design.fontSize * 2
                   }
                 }
 
@@ -200,9 +200,9 @@ Rectangle {
                     // Layout.fillWidth: true
 
                     font {
-                        family: Design.fontFamily
-                        pixelSize: Design.fontSize
-                        bold: false
+                      family: Design.fontFamily
+                      pixelSize: Design.fontSize
+                      bold: false
                     }
 
                     Component.onCompleted: {
@@ -211,7 +211,6 @@ Rectangle {
                         this.height = 0
                       }
                     }
-
                   }
                 }
               }
@@ -226,6 +225,7 @@ Rectangle {
                 Layout.margins: 3
 
                 Text {
+                  anchors.fill: parent
                   text: "󰖭"
                   color: "white"
                   anchors {

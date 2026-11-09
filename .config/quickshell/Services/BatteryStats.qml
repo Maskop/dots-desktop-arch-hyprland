@@ -23,6 +23,9 @@ Singleton {
     stdout: StdioCollector {
       onStreamFinished: {
         root.batteryPercentage = parseInt(String(this.text))
+        if (root.batteryCharging) {
+          return 0
+        }
         if (root.batteryPercentage <= 20) {
           root.color = "red"
           root.batteryIcon = ""

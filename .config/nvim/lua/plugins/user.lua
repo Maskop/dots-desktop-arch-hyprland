@@ -46,7 +46,9 @@ return {
     "DamianVCechov/hexview.nvim",
     config = function() require("hexview").setup() end,
   },
-
+  {
+    "Aietes/esp32.nvim",
+  },
   -- { "Leon-Degel-Koehn/qmlformat.nvim" },
   -- {
   --   "neovim/nvim-lspconfig",

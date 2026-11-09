@@ -10,3 +10,11 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export STM32_PRG_PATH=/home/maskop/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
+. "$HOME/.cargo/env"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init bash)"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/maskop/.local/bin:$PATH"

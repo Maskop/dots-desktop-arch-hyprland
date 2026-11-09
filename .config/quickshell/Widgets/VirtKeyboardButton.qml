@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Io
 import qs.Services
-import qs.VirtualKeyboard
+// import qs.VirtualKeyboard
 
 Rectangle {
   id: root
@@ -9,13 +10,31 @@ Rectangle {
   Layout.preferredWidth: this.height
   radius: Design.widgetRadius
 
+  property bool kbdOpen: false 
+
   border {
     width: Design.widgetHeight / 16
     color: Design.transparent
   }
 
+  Process {
+    id: runKbd
+
+    running: false
+
+    command: ["wvkbd-mobintl", "-L", "300"]
+  }
+
+  Process {
+    id: killKbd
+
+    running: false
+
+    command: ["killall", "wvkbd-mobintl"]
+  }
+
   Text {
-    text: "K"
+    text: root.kbdOpen ? "󰌏" : "󰌌"
     color: Design.colFg
     anchors {
       horizontalCenter: parent.horizontalCenter
@@ -32,7 +51,13 @@ Rectangle {
     anchors.fill: parent
     cursorShape: Qt.PointingHandCursor
     onClicked: {
-      StatusSaver.wokrspacesView = !StatusSaver.wokrspacesView
+      if (!root.kbdOpen) {
+        runKbd.running = true
+        root.kbdOpen = true
+      } else {
+        killKbd.running = true
+        root.kbdOpen = false
+      }
     }
   }
 

@@ -17,9 +17,11 @@ PanelWindow {
   implicitWidth: Screen.width
   implicitHeight: Screen.height
   color: "transparent"
-  WlrLayershell.layer: WlrLayer.Overlay
+  WlrLayershell.layer: (root.notifBoxOpen || notifHandler.hovered) ? WlrLayer.Overlay : WlrLayer.Bottom
   WlrLayershell.exclusiveZone: -1
   mask: notifBoxMask
+
+  // onNotifBoxOpenChanged: {WlrLayershell.layer = (root.notifBoxOpen || notifHandler.hovered) ? WlrLayer.Overlay : WlrLayer.Bottom}
 
   anchors {
     top: true
@@ -55,6 +57,8 @@ PanelWindow {
 
     HoverHandler {
       id: notifHandler
+
+      acceptedDevices: PointerDevice.Generic | PointerDevice.TouchPad
     }
 
     TapHandler {

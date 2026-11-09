@@ -1,4 +1,6 @@
 [MIME Cache]
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop;
 x-scheme-handler/joplin=appimagekit-joplin.desktop;
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/steamlink=steam.desktop;
+x-scheme-handler/tidal=sone-handler.desktop;

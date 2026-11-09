@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import qs.Services
@@ -42,9 +43,25 @@ Rectangle {
     anchors.fill: parent
     cursorShape: Qt.PointingHandCursor
     onClicked: {
-      appsWorkspaces.toggle()
-      appsWorkspaces.setWidth()
+      // appsWorkspaces.toggle()
+      // appsWorkspaces.setWidth()
+
+      enabled: checkEnabled()
     }
+  }
+
+  property var enabled: true
+
+
+  function checkEnabled() {
+    if(enabled) {
+      disableTouch.running = true
+    } else {
+      enableTouch.running = true
+    }
+    enabled = !enabled
+    notifyState.running = true
+    return !enabled
   }
 
   HoverHandler {
@@ -60,4 +77,32 @@ Rectangle {
       }
     }
   }
+
+  Process {
+    id: enableTouch
+    running: false
+
+    command: ["hyprctl", "eval", "hl.config({[\"input.touchdevice.enabled\"]=true})"]
+    // stdout: StdioCollector {
+    //   onStreamFinished: console.log(`input.touchdevice.enabled: ${this.text}`)
+    // }
+  }
+
+  Process {
+    id: disableTouch
+    running: false
+
+    command: ["hyprctl", "eval", "hl.config({[\"input.touchdevice.enabled\"]=false})"]
+    // stdout: StdioCollector {
+    //   onStreamFinished: console.log(`input.touchdevice.disabled: ${this.text}`)
+    // }
+  }
+
+  Process {
+    id: notifyState
+    running: false
+
+    command: ["notify-send", "input.touchdevice.enabled: " + enabled]
+  }
+
 }

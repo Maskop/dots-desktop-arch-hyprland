@@ -9,6 +9,7 @@ Singleton {
   property list<QtObject> notifications
   property list<QtObject> notifActive
   property list<var> timer
+  property bool noitfSilent: false
 
 
   onNotificationsChanged: {
@@ -34,6 +35,7 @@ Singleton {
     closePopup(id)
     for (let i = 0; i < notifications.length; i++) {
       if (notifications[i].id == id) {
+        console.log("deleted notification: " + notifications[i].id + " " + notifications[i].summary)
         notifications.pop(i).dismiss()
         break;
       }

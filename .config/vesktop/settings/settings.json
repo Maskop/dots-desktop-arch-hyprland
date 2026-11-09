@@ -472,8 +472,8 @@
             "enabled": true,
             "useDevIcon": "COLOR",
             "theme": "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/2d87559c7601a928b9f7e0f0dda243d2fb6d4499/packages/tm-themes/themes/tokyo-night.json",
-            "tryHljs": "SECONDARY",
-            "bgOpacity": 100
+            "bgOpacity": 100,
+            "tryDiscordHighlighter": "SECONDARY"
         },
         "ShowAllMessageButtons": {
             "enabled": false
@@ -634,9 +634,6 @@
             "enabled": true,
             "addBack": true
         },
-        "ExpressionCloner": {
-            "enabled": true
-        },
         "DisableDeepLinks": {
             "enabled": true
         },
@@ -660,6 +657,9 @@
         },
         "MusicRichPresence": {
             "enabled": false
+        },
+        "ExpressionManager": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -672,11 +672,12 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1789915133689
+        "settingsSyncVersion": 1793531862609
     },
     "uiElements": {
         "chatBarButtons": {},
         "messagePopoverButtons": {}
     },
-    "windowsMaterial": "none"
+    "windowsMaterial": "none",
+    "nativeTitleBar": false
 }
